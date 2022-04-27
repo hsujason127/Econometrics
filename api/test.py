@@ -24,3 +24,5 @@ for year in range(len(years)):
             except ValueError:
                 print(f"error occured in {years[year]+months[month]+dates[date]}")
                 time.sleep(5)
+
+data.to_excel("data.xlsx")

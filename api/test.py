@@ -9,15 +9,18 @@ dates = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
 ## valueError
 
 ## create an empty dataframe
-rows = 2200
+row = 1
 data = pd.DataFrame(columns=['yy-mm-dd', '自營商(自行買賣)', '自營商(避險)', '投信', '外資及陸資'])
 
-for row in range(rows):
-    for year in range(len(years)):
-        for month in range(len(months)):
-            for date in range(len(dates)):
-                yymmdd = years[year] + months[month] + dates[date]
-                try:
-                    data.loc[row] = get_data(yymmdd)
-                except ValueError:
-                    print(f"error occured in {date}")
+for year in range(len(years)):
+    for month in range(len(months)):
+        for date in range(len(dates)):
+            yymmdd = years[year] + months[month] + dates[date]
+            try:
+                data.loc[row] = get_data(yymmdd)
+                print(get_data(yymmdd))
+                row += 1
+                time.sleep(5)
+            except ValueError:
+                print(f"error occured in {years[year]+months[month]+dates[date]}")
+                time.sleep(5)

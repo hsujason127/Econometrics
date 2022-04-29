@@ -35,11 +35,11 @@ for year in range(len(years)):
 
 row = 1
 for i in range(0, len(alldates)):
-    time.sleep(random.randint(1,4))
+    time.sleep(5)
     try:
         data.append([alldates[i]] + get_data(alldates[i]))
         print([alldates[i]] + get_data(alldates[i]))
-        time.sleep(random.randint(1,4))
+        time.sleep(5)
     except ValueError:
         print(f"There is no data in {alldates[i]}")
 

@@ -1,16 +1,19 @@
+from re import A
+
+
 class Investor: 
     # Constructor
     def __init__(self, institute, date, over_amount):
         self.institute_ = institute
-        self.date_ = date
+        self.date_ = int(date)
         self.over_amount_ = int(over_amount)
     
-    # Member Functions
-    def GetOverAmount(self):
-        return self.over_amount_
+    # # Member Functions
+    # def GetOverAmount(self):
+    #     return self.over_amount_
     
-    def GetInstitute(self):
-        return self.institute_
+    # def GetInstitute(self):
+    #     return self.institute_
 
 class Rate:
     # Constructor
@@ -19,14 +22,12 @@ class Rate:
         self.rate_ = rate
         self.date_ = date
 
-    # Member Functions
-
-a = Investor("自營商", "20220428", "100")
-b = Investor("外資", "20220428", "200")
-
-x = [a, b]
-
-print(x[0].GetOverAmount(), x[1].GetInstitute())
+    # # Member Functions
+    # def GetType(self):
+    #     return self.type_
+    
+    # def GetRate(self):
+    #     return self.rate_
 
 
 

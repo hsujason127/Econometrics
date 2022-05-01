@@ -1,6 +1,3 @@
-from re import A
-
-
 class Investor: 
     # Constructor
     def __init__(self, institute, date, over_amount):
@@ -8,26 +5,21 @@ class Investor:
         self.date_ = int(date)
         self.over_amount_ = int(over_amount)
     
-    # # Member Functions
-    # def GetOverAmount(self):
-    #     return self.over_amount_
-    
-    # def GetInstitute(self):
-    #     return self.institute_
 
 class Rate:
     # Constructor
-    def __init__(self, type, rate, date):
-        self.type_ = type
-        self.rate_ = rate
-        self.date_ = date
+    def __init__(self, name, date, rate):
+        self.name_ = name
+        self.date_ = int(date)
+        self.rate_ = float(rate)
 
-    # # Member Functions
-    # def GetType(self):
-    #     return self.type_
-    
-    # def GetRate(self):
-    #     return self.rate_
+
+class Index:
+    # Constructor
+    def __init__(self, name, date, price):
+        self.name_ = name
+        self.date_ = int(date)
+        self.price_ = float(price)
 
 
 

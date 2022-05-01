@@ -26,7 +26,6 @@ class GetData:
             for row in rows_:
                 self.size_ += 1
                 self.data_.append(row)
-        print(self.size_)
     
     # Member Functions
     def FindObjectIndex(self, header, object):

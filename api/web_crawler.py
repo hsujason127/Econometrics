@@ -7,9 +7,6 @@ import random
 cwd = os.getcwd()
 cwd
 
-## stop time set
-stop = random.randint(3,7)
-
 ## define the function
 def get_data(yymmdd):
     ## set the url
@@ -18,12 +15,12 @@ def get_data(yymmdd):
     raw = pd.read_html(url, encoding='utf-8',header=0)[0]
 
     ## get the amount
-    amount = raw.iloc[1:5, 3].tolist()
+    amount = raw.iloc[1:6, 3].tolist()
     return amount    
 
 ## Set the query
-years = ['2017', '2018', '2019', '2020', '2021']
-months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+years = [str(year) for year in range(2004, 2022+1)]
+months = [str(month) for month in range(1, 12+1)]
 dates = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
 
 ## create an empty list
@@ -38,13 +35,15 @@ for year in range(len(years)):
 
 row = 1
 for i in range(0, len(alldates)):
-    time.sleep(stop)
+    time.sleep(5)
     try:
         data.append([alldates[i]] + get_data(alldates[i]))
-        time.sleep(stop)
+        print([alldates[i]] + get_data(alldates[i]))
+        time.sleep(5)
     except ValueError:
         print(f"There is no data in {alldates[i]}")
-        time.sleep(stop)
+        time.sleep(3)
 
 data_sets = pd.DataFrame(data)
-data_sets.to_excel(cwd + 'twse_data.xlsx')
+data_sets.columns = ['年份', '自營商(自行買賣)', '自營商(避險)', '投信', '外資及陸資(不含外資自營商)', '外資自營商']
+data_sets.to_csv(cwd + 'twse_data.csv', encoding='utf-8-sig')

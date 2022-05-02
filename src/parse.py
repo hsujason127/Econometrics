@@ -30,16 +30,15 @@ class GetData:
     # Member Functions
     def FindObjectIndex(self, header, object):
         for i in range(len(header)):
-            if header[i] == object:
-                return i
-        
+                if header[i] == object:
+                    return i
         return -1
 
-    def GetInvestor(self, institute):
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
-        except:
-            print("data_error!")
+    def GetInvestor(self, institute): 
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
 
         for i in range(self.start_, self.size_):
             res = Investor(institute, self.data_[i][self.date_index_], self.data_[i][object_index_])
@@ -48,11 +47,10 @@ class GetData:
         return self.result_
 
     def GetInvestorByTime(self, institute, time_from, time_to):
-       
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
-        except:
-            print("data_error!")
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
 
         for i in range(self.start_, self.size_):
             if time_from <= self.data_[i][self.date_index_] <= time_to:
@@ -63,11 +61,11 @@ class GetData:
 
 
     def GetRate(self, name):
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
-        except:
-            print("data_error!")
-
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
+            
         for i in range(self.start_, self.size_):
             res = Rate(name, self.data_[i][self.date_index_], self.data_[i][object_index_])
             self.result_.append(res)
@@ -75,11 +73,11 @@ class GetData:
         return self.result_
 
     def GetRateByTime(self, name, time_from, time_to):
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
-        except:
-            print("data_error!")
-
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
+            
         for i in range(self.start_, self.size_):
             if time_from <= self.data_[i][self.date_index_] <= time_to:
                 res = Rate(name, self.data_[i][self.date_index_], self.data_[i][object_index_])
@@ -88,11 +86,11 @@ class GetData:
         return self.result_
 
     def GetIndex(self, name):
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
-        except:
-            print("data_error!")
-
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
+            
         for i in range(self.start_, self.size_):
             res = Index(name, self.data_[i][self.date_index_], self.data_[i][object_index_])
             self.result_.append(res)
@@ -100,11 +98,11 @@ class GetData:
         return self.result_
     
     def GetIndexByTime(self, name, time_from, time_to):
-        try:
-            object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
-        except:
-            print("data_error!")
-
+        object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
+        if (object_index_ == -1):
+            print("Invliad inputs!")
+            exit(0)
+            
         for i in range(self.start_, self.size_):
             if time_from <= self.data_[i][self.date_index_] <= time_to:
                 res = Index(name, self.data_[i][self.date_index_], self.data_[i][object_index_])

@@ -9,6 +9,6 @@ sys.path.insert(0, parentdir)
 from src.parse import *
 
 p = GetData('./raw_data.csv')
-result = p.GetIndex("s&p500")
+result = p.GetIndex("exchange_rate")
 for res in result:
     print(res.name_, res.date_, res.price_)

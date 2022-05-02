@@ -37,7 +37,7 @@ class GetData:
     def GetInvestor(self, institute): 
         object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetInvestor]: Invliad inputs!")
             exit(0)
 
         for i in range(self.start_, self.size_):
@@ -49,7 +49,7 @@ class GetData:
     def GetInvestorByTime(self, institute, time_from, time_to):
         object_index_ = self.FindObjectIndex(self.data_[self.header_], institute)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetInvestorByTime]: Invliad inputs!")
             exit(0)
 
         for i in range(self.start_, self.size_):
@@ -63,7 +63,7 @@ class GetData:
     def GetRate(self, name):
         object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetRate]: Invliad inputs!")
             exit(0)
             
         for i in range(self.start_, self.size_):
@@ -75,7 +75,7 @@ class GetData:
     def GetRateByTime(self, name, time_from, time_to):
         object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetRateByTime]: Invliad inputs!")
             exit(0)
             
         for i in range(self.start_, self.size_):
@@ -88,7 +88,7 @@ class GetData:
     def GetIndex(self, name):
         object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetIndex]: Invliad inputs!")
             exit(0)
             
         for i in range(self.start_, self.size_):
@@ -100,7 +100,7 @@ class GetData:
     def GetIndexByTime(self, name, time_from, time_to):
         object_index_ = self.FindObjectIndex(self.data_[self.header_], name)
         if (object_index_ == -1):
-            print("Invliad inputs!")
+            print("[GetIndexByTime]: Invliad inputs!")
             exit(0)
             
         for i in range(self.start_, self.size_):
